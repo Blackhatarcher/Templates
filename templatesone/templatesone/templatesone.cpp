@@ -14,6 +14,20 @@ void Swap(T & v1, T & v2) {
 	v1 = v2;
 	v2 = temp;
 }
+template <typename T>
+int* doubleCapacity(const T* list, int size) {
+	if (size > 0 && list != NULL) {
+		T* newlist = new T[size * 2];
+		for (int i = 0; i < size; i++) {
+			newlist[i] = list[i];
+		}
+		delete[] list;
+		return newlist;
+	}
+	else {
+		return NULL;
+	}
+}
 
 int main()
 {
