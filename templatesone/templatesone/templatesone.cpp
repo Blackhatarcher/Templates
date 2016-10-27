@@ -28,7 +28,35 @@ int* doubleCapacity(const T* list, int size) {
 		return NULL;
 	}
 }
+template <typename T>
+class ExpandableArray {
+private:
+	T* items;
+	int length;
+	int size;
+	void increaseSizeTo(int newSize) {
+		T* newList = new newSize[];
+	}
+public:
+	ExpandableArray() {
+		size = 10;
+		length = 0;
+		items = new T[size];
+	}
+	int getLength() {
+		return length;
+	}
+	void append(T item) {
+		if (length >= size) {
+			doubleCapacity();
+		}
+		items[length] = item;
 
+	}
+	T getAtIndex(int index);
+	void setItemAtIndex(T item, int index);
+	void output();
+};
 int main()
 {
 	bool playing = true;
@@ -44,7 +72,11 @@ int main()
 		cout << x << endl;
 		cout << y << endl;
 
-
+		ExpandableArray<int> sArray;
+		for (int i = 0; i < 200; i++) {
+			sArray.append(i);
+		}
+		sArray.output();
 
 		int finalanswer = 0;
 		cout << "Enter 1 to exit" << endl;
